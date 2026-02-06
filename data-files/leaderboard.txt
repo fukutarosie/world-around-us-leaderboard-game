@@ -1,0 +1,3 @@
+John|12
+Smith|8
+Mary|16

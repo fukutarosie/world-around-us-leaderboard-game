@@ -47,11 +47,11 @@ A simple interactive quiz game built with PHP that tests your knowledge about An
 ## Project Structure
 
 ```
-├── index.php          # Landing page with topic selection
-├── animals.php        # Animals quiz page
-├── environment.php    # Environment quiz page
-├── index.html         # Static HTML page (if needed)
-└── README.md          # This file
+├── index.php              # Landing page with topic selection
+├── animals_quiz.php       # Animals quiz page
+├── environment_quiz.php   # Environment quiz page
+├── index.html             # Static HTML page (if needed)
+└── README.md              # This file
 ```
 
 ## Technologies Used

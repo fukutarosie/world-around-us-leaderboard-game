@@ -21,7 +21,7 @@
         <p><strong>Player:</strong> <?php echo $name; ?></p>
         
         <h2>Environment Quiz</h2>
-        <p>Welcome to the Environment Quiz! Answer the questions below:</p>
+        <p>Welcome to the Environment Quiz! Answer the questions below with a True or False:</p>
         
         <form action="submit_game.php" method="post">
             <input type="hidden" name="name" value="<?php echo htmlspecialchars($name); ?>">

@@ -1,0 +1,33 @@
+ANIMALS QUESTIONS
+I am the tallest animal on Earth and my long neck helps me reach leaves high up in trees. What am I?|Giraffe
+I am a flightless bird that lives in Antarctica and I waddle on land but swim gracefully underwater. What am I?|Penguin
+I am the largest land animal with big ears and a long trunk that I use to drink water and grab food. What am I?|Elephant
+I am the fastest land animal and can run up to 70 miles per hour with my spotted coat. What am I?|Cheetah
+I am a marsupial from Australia that hops around and carries my baby in a pouch. What am I?|Kangaroo
+I am the largest animal ever to exist on Earth, even bigger than dinosaurs, and I live in the ocean. What am I?|Blue Whale
+I am a black and white bear from China that loves to eat bamboo all day long. What am I?|Panda
+I am known as the king of the jungle and the male of my species has a big fluffy mane. What am I?|Lion
+I am a striped cat that lives in Asia and I am the largest of all wild cats. What am I?|Tiger
+I have eight arms, can change color to blend in with my surroundings, and squirt ink when scared. What am I?|Octopus
+I am a slow-moving animal that hangs upside down from trees in the rainforest and sleep up to 20 hours a day. What am I?|Sloth
+I am a pink bird with long skinny legs that stands on one foot and gets my color from the food I eat. What am I?|Flamingo
+I am the only mammal that can truly fly and I use echolocation to find food at night. What am I?|Bat
+I am a smart ocean animal with a curved fin on my back and I'm known for being playful and friendly. What am I?|Dolphin
+I have a hard shell on my back, move very slowly on land, and can live for over 100 years. What am I?|Turtle
+
+ENVIRONMENT QUESTIONS
+The Amazon Rainforest produces about 20% of the world's oxygen.|true
+Lightning never strikes the same place twice.|false
+A single tree can absorb as much as 48 pounds of carbon dioxide per year.|true
+The Sahara Desert is the largest desert in the world.|false
+Bamboo is the fastest growing plant on Earth and can grow up to 3 feet in just one day.|true
+The Great Barrier Reef is the largest living structure on Earth and can be seen from space.|true
+It takes about 1 million years for a glass bottle to decompose in nature.|true
+The Pacific Ocean is larger than all of Earth's land combined.|true
+Raindrops are shaped like perfect little spheres.|false
+Dead leaves falling from trees help create nutrients in the soil for new plants to grow.|true
+The North Pole has land underneath the ice just like the South Pole.|false
+Earthworms help keep soil healthy by creating tunnels that let air and water reach plant roots.|true
+Clouds are made of water vapor and can weigh as much as 100 elephants.|true
+Coral reefs cover more than half of the ocean floor.|false
+One recycled aluminum can saves enough energy to power a TV for 3 hours.|true
