@@ -34,6 +34,7 @@
         if (trim($line) === 'ENVIRONMENT QUESTIONS') {
             break;
         }
+
         if ($inAnimalSection && strpos($line, '|') !== false) {
             $quiz_parts = explode('|', $line);
             $animalQuestions[] = [
@@ -55,8 +56,10 @@
             <input type="hidden" name="topic" value="animals">
             
             <?php
-            // Display first 8 animal questions
+            // Randomly shuffle and select 4 animal questions
+            shuffle($animalQuestions);
             $questionsToShow = array_slice($animalQuestions, 0, 4);
+            
             foreach ($questionsToShow as $index => $q) {
                 $questionNum = $index + 1;
                 echo '<div class="question">';
