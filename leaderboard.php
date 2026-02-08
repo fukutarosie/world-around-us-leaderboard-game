@@ -49,9 +49,11 @@
 	</header>
 
 	<!-- Sort options -->
-	<p>Sort by:</p>
-	<a href="leaderboard.php?sort=score"><button type="button">Greatest Score</button></a>
-	<a href="leaderboard.php?sort=name"><button type="button">Nickname</button></a>
+	<div style="text-align: center;">
+		<p>Sort by:</p>
+		<a href="leaderboard.php?sort=score"><button type="button">Greatest Score</button></a>
+		<a href="leaderboard.php?sort=name"><button type="button">Nickname</button></a>
+	</div>
 
 	<br/><br/>
 
@@ -79,11 +81,13 @@
 			</tbody>
 		</table>
 	<?php else: ?>
-		<p>No players yet. Be the first to play!</p>
+		<p style="text-align: center;">No players yet. Be the first to play!</p>
 	<?php endif; ?>
 
 	<br/>
-	<a href="submit_game.php"><button type="button">Back to Quiz</button></a>
-	<a href="index.php"><button type="button">Back to Home</button></a>
+	<div style="text-align: center;">
+		<a href="submit_game.php"><button type="button">Back to Quiz</button></a>
+		<a href="index.php"><button type="button">Back to Home</button></a>
+	</div>
 </body>
 </html>
