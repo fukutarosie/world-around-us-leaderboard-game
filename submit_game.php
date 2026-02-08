@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Quiz Result</title>
+	<link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
@@ -49,22 +50,18 @@
 		$_SESSION['last_incorrect'] = $number_of_incorrect;
 		$_SESSION['current_quiz_points'] = $quiz_points;
 		
-		// Use player name from session (set at start)
-		$playerName = $_SESSION['name'];
-		
-		// Append to leaderboard file (name, current_quiz_points, overall_quiz_points)
-		$leaderboardFile = 'data-files/leaderboard.txt';
-		$leaderboardEntry = $playerName . ',' . $_SESSION['current_quiz_points'] . ',' . $_SESSION['overall_quizzes_points'] . PHP_EOL;
-		file_put_contents($leaderboardFile, $leaderboardEntry, FILE_APPEND);
-		
 		// Redirect to prevent form resubmission on page refresh
+		// Leaderboard file is only updated when the user clicks "Exit Game" (in result_page.php)
 		header('Location: ' . $_SERVER['PHP_SELF']);
 		exit;
 	}
+
+
 	
 	
 	?>
 
+	<div class="game-container" style="text-align: center;">
 	<h1>Quiz Result</h1>
 	<p><strong>Number of Correct:</strong> <?php echo isset($_SESSION['last_score']) ? $_SESSION['last_score'] : 0; ?></p>
 	<p><strong>Number of Incorrect:</strong> <?php echo isset($_SESSION['last_incorrect']) ? $_SESSION['last_incorrect'] : 0; ?></p>
@@ -94,5 +91,6 @@
 	<form method = "post" action="result_page.php">
 		<button type="submit" name="exit">Exit Game</button>
 	</form>
+	</div>
 </body>
 </html>

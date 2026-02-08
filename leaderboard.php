@@ -3,97 +3,90 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Leaderboard - The World Around Us</title>
+	<title>Leaderboard</title>
+	<link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
 	<?php
 	// Start the session to access session variables
 	session_start();
-	?>
-	
-	<header>
-		<h1>Leaderboard - The World Around Us</h1>
-	</header>
 
-	<?php
-	// Load leaderboard data
+	// Reading Leaderboard file
 	$leaderboardFile = 'data-files/leaderboard.txt';
-	$playersData = [];
-	
+	$players = [];
+
+	// Check if the file exists before reading
+	// Each line format: name,cumulative_points
 	if (file_exists($leaderboardFile)) {
 		$lines = file($leaderboardFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-		
-		// Process each line: name, current_quiz_points, overall_quiz_points
 		foreach ($lines as $line) {
 			$parts = explode(',', $line);
-			if (count($parts) === 3) {
-				$name = trim($parts[0]);
-				$currentPoints = (int)trim($parts[1]);
-				$overallPoints = (int)trim($parts[2]);
-				
-				// Store all attempts for each player
-				if (!isset($playersData[$name])) {
-					$playersData[$name] = [
-						'name' => $name,
-						'attempts' => [],
-						'overall_points' => 0
-					];
-				}
-				
-				// Add this quiz attempt
-				$playersData[$name]['attempts'][] = $currentPoints;
-				// Keep the latest (highest) overall points
-				$playersData[$name]['overall_points'] = max($playersData[$name]['overall_points'], $overallPoints);
+			if (count($parts) === 2) {
+				$players[] = [
+					'name' => trim($parts[0]),
+					'points' => (int)trim($parts[1])
+				];
 			}
 		}
 	}
-	
-	// Sort by overall points (descending)
-	usort($playersData, function($a, $b) {
-		return $b['overall_points'] - $a['overall_points'];
-	});
+
+	// Determine sort order from GET parameter (default: by score descending)
+	$sortBy = isset($_GET['sort']) ? $_GET['sort'] : 'score';
+
+	if ($sortBy === 'name') {
+		// Sort alphabetically by nickname (ascending)
+		usort($players, function($a, $b) {
+			return strcasecmp($a['name'], $b['name']);
+		});
+	} else {
+		// Sort by greatest score (descending)
+		usort($players, function($a, $b) {
+			return $b['points'] - $a['points'];
+		});
+	}
 	?>
 
-	<div class="leaderboard-container">
-		<h2>All Players Rankings</h2>
-		
-		<?php if (!empty($playersData)): ?>
-			<table border="1" cellpadding="10" cellspacing="0">
-				<thead>
-					<tr>
-						<th>Rank</th>
-						<th>Player Name</th>
-						<th>Number of Attempts</th>
-						<th>Latest Quiz Points</th>
-						<th>Overall Points</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php 
-					$rank = 1;
-					foreach ($playersData as $player) {
-						$numAttempts = count($player['attempts']);
-						$latestQuizPoints = end($player['attempts']);
-						echo "<tr>";
-						echo "<td>" . $rank . "</td>";
-						echo "<td>" . htmlspecialchars($player['name']) . "</td>";
-						echo "<td>" . $numAttempts . "</td>";
-						echo "<td>" . $latestQuizPoints . "</td>";
-						echo "<td>" . $player['overall_points'] . "</td>";
-						echo "</tr>";
-						$rank++;
-					}
-					?>
-				</tbody>
-			</table>
-		<?php else: ?>
-			<p>No players yet. Be the first to play!</p>
-		<?php endif; ?>
-		
-		<br/>
-		<a href="index.php"><button type="button">Back to Home</button></a>
-		<a href="submit_game.php"><button type="button">Back to Results</button></a>
-	</div>
+	<header>
+		<h1>Leaderboard</h1>
+	</header>
+
+	<!-- Sort options -->
+	<p>Sort by:</p>
+	<a href="leaderboard.php?sort=score"><button type="button">Greatest Score</button></a>
+	<a href="leaderboard.php?sort=name"><button type="button">Nickname</button></a>
+
+	<br/><br/>
+
+	<?php if (!empty($players)): ?>
+		<table border="1" cellpadding="10" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Nickname</th>
+					<th>Cumulative Points</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				$rank = 1;
+				foreach ($players as $player) {
+					echo "<tr>";
+					echo "<td>" . $rank . "</td>";
+					echo "<td>" . htmlspecialchars($player['name']) . "</td>";
+					echo "<td>" . $player['points'] . "</td>";
+					echo "</tr>";
+					$rank++;
+				}
+				?>
+			</tbody>
+		</table>
+	<?php else: ?>
+		<p>No players yet. Be the first to play!</p>
+	<?php endif; ?>
+
+	<br/>
+	<a href="submit_game.php"><button type="button">Back to Quiz</button></a>
+	<a href="index.php"><button type="button">Back to Home</button></a>
 </body>
 </html>

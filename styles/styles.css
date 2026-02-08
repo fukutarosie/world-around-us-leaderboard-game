@@ -1,0 +1,234 @@
+/* ===== Color Variables ===== */
+:root {
+    --bg: #f6fbff;
+    --card: #ffffff;
+    --text: #102a43;
+    --muted: #486581;
+    --accent: #2f80ed;
+    --accent2: #27ae60;
+    --danger: #eb5757;
+    --border: #d9e2ec;
+}
+
+/* ===== General Reset & Body ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(90deg, var(--accent), #56ccf2);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: white;
+}
+
+/* ===== Headings ===== */
+h1 {
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+/* ===== Forms ===== */
+form {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--muted);
+}
+
+input[type="text"] {
+    padding: 10px 12px;
+    font-size: 1em;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    margin: 5px 0 10px 0;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 5px rgba(47, 128, 237, 0.3);
+}
+
+input[type="radio"] {
+    margin: 5px 5px 5px 0;
+    transform: scale(1.2);
+}
+
+/* ===== Buttons ===== */
+input[type="submit"],
+button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 5px 5px 0;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    opacity: 0.85;
+}
+
+/* Green buttons for quiz topics */
+form[action="animals_quiz.php"] button,
+form[action="environment_quiz.php"] button {
+    background-color: var(--accent2);
+}
+
+/* Orange/accent button for leaderboard */
+form[action="leaderboard.php"] button {
+    background-color: var(--accent);
+}
+
+/* Red button for exit */
+form[action="result_page.php"] button {
+    background-color: var(--danger);
+}
+
+/* ===== Game Container (Quiz Pages) ===== */
+.game-container {
+    background-color: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 16px rgba(16, 42, 67, 0.06);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===== Question Cards ===== */
+.question {
+    background-color: #f0f7ff;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 10px;
+}
+
+.question p {
+    margin-bottom: 8px;
+}
+
+/* ===== Results Page ===== */
+.game-container p,
+body > p {
+    font-size: 1.05em;
+    margin: 8px 0;
+}
+
+/* ===== Horizontal Rules ===== */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 18px 0;
+}
+
+/* ===== Tables (Leaderboard) ===== */
+table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin: 15px auto;
+    background-color: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(16, 42, 67, 0.06);
+}
+
+table thead {
+    background-color: var(--accent);
+    color: white;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f0f7ff;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--card);
+}
+
+table tbody tr:hover {
+    background-color: #e0edff;
+}
+
+/* ===== Links styled as buttons ===== */
+a {
+    text-decoration: none;
+}
+
+a button {
+    background-color: #334e68;
+    color: white;
+}
+
+a button:hover {
+    opacity: 0.85;
+}
+
+/* Sort buttons on leaderboard */
+a[href*="sort=score"] button {
+    background-color: var(--accent);
+}
+
+a[href*="sort=name"] button {
+    background-color: #334e68;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    table th,
+    table td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+}

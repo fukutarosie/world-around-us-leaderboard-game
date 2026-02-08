@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample HTML Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
@@ -33,6 +33,7 @@
     <header>
         <h1>The World Around Us</h1>
     </header>
+    <div class="game-container" style="text-align: center;">
     <form id="gameStartForm" name="gameStartForm" method="post">
 
         <label for="name">Name:</label>
@@ -54,5 +55,6 @@
         <br/>
 
     </form>
+    </div>
 </body> 
 </html>
