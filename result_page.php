@@ -48,7 +48,7 @@
 	}
 	file_put_contents($leaderboardFile, $fileContent);
 
-	// Destroy the session (game is over)
+    // Clear the session data
 	session_destroy();
 	?>
 

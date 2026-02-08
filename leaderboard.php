@@ -9,9 +9,6 @@
 
 <body>
 	<?php
-	// Start the session to access session variables
-	session_start();
-
 	// Reading Leaderboard file
 	$leaderboardFile = 'data-files/leaderboard.txt';
 	$players = [];
