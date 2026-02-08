@@ -13,8 +13,6 @@
     // session_start() is used to start a new session or resume an existing one
     // isset is used to check if the $_POST variables has been set (the form has been submitted) , 
     // header() is used to redirect to the appropriate quiz page based on the selected topic
-    // session_start() is used to start a new session or resume an existing one
-
     session_start();
     if (isset($_POST['name']) && isset($_POST['quiz-topic'])) {
         switch ($_POST['quiz-topic']) 

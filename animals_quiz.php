@@ -21,7 +21,7 @@
     </header>
 
     <?php
-    // parse the questions from the questions.txt file , file returns an array of lines from the file
+    // Parse the questions from the questions.txt file , file returns an array of lines from the file
     $lines = file('data-files/questions.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     $animalQuestions = [];
     $inAnimalSection = false;
@@ -72,6 +72,9 @@
             <input type="submit" value="Submit Answers">
             <a href="index.php"><button type="button">Back to Home</button></a>
         </form>
+
+        <?php $_SESSION['current_questions'] = $questionsToShow;?>
+        
     </div>
 </body>
 </html>

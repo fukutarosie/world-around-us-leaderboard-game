@@ -34,6 +34,10 @@
         // Stop when we reach the end of file (no more sections after ENVIRONMENT)
         if ($inEnvironmentSection && strpos($line, '|') !== false) {
             $quiz_parts = explode('|', $line);
+
+            // Store question and answer in the environmentQuestions array
+            // The answer is expected to be 'true' or 'false'
+            // $quiz_parts[0] is the question, $quiz_parts[1] is the answer
             $environmentQuestions[] = [
                 'question' => trim($quiz_parts[0]),
                 'answer' => trim($quiz_parts[1])
@@ -61,7 +65,8 @@
                 $questionNum = $index + 1;
                 echo '<div class="question">';
                 echo '<p><strong>Question ' . $questionNum . ':</strong> ' . htmlspecialchars($q['question']) . '</p>';
-                echo '<input type="text" name="answers[]" required><br/>';
+                echo '<input type="radio" name="answers[' . $index . ']" value="true" required>True<br/>';
+                echo '<input type="radio" name="answers[' . $index . ']" value="false">False<br/>';
                 echo '</div><br/>';
             }
             ?>
@@ -69,6 +74,9 @@
             <input type="submit" value="Submit Answers">
             <a href="index.php"><button type="button">Back to Home</button></a>
         </form>
+
+        <?php $_SESSION['current_questions'] = $questionsToShow; ?>
+        
     </div>
 </body>
 </html>
