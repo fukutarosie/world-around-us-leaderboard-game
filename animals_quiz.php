@@ -57,6 +57,8 @@
             
             <?php
             // Randomly shuffle and select 4 animal questions
+            // with shuffle function to randomize the order of questions
+            // with array_slice to get the first 4 questions from the shuffled array
             shuffle($animalQuestions);
             $questionsToShow = array_slice($animalQuestions, 0, 4);
             
