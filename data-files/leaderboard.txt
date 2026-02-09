@@ -2,3 +2,4 @@ JAYADIPA FUKUTARO,17
 Guest,0
 Amy Smith,8
 Claire,12
+Terence,5
